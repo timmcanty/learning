@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ninetyninecats</title>
+</head>
+<body>
+
+<% if current_user %>
+  <h2> Welcome <%= current_user.user_name %> !</h2>
+
+  <ul>
+    <% current_user.sessions.each do |sess| %>
+      <li> <%= "#{sess.device}: #{sess.browser} at #{sess.location}" %> </li>
+      <form method="post" action="<%= sessions_url %>" class="button_to">
+        <input type="hidden" name="_method" value="delete" >
+        <input type="submit" value="Logout" >
+        <input name="authenticity_token" type="hidden" value=<%=form_authenticity_token%>>
+        <input type="hidden" name="destroy[id]" value=<%= sess.id %>>
+      </form>
+    <% end %>
+  </ul>
+<% else %>
+  <h2> Please Login </h2> <br>
+  <a href="<%= new_sessions_url %>" > Login </a> <br>
+  <a href="<%= new_user_url %>" > Or Register Here </a>
+
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

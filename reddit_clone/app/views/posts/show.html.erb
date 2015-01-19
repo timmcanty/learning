@@ -1,0 +1,27 @@
+<h1><%= @post.title %></h1>
+
+  <% @all_comments = @post.comments_by_parent_id %>
+
+<% if @post.url.length > 1 %>
+<a href="<%= @post.url %>"> Link </a> <br>
+<% end %>
+
+<% if @post.content %>
+  <p>
+    <%= @post.content %>
+  </p>
+<% end %>
+
+<ul>
+  <% @all_comments[nil].each do |comment| %>
+     <%= render partial: 'comment', locals: { comment: comment, all_comments: @all_comments } %>
+  <% end %>
+</ul>
+
+<a href="<%= new_post_comment_url(@post.id) %>">New Comment for Post</a>
+<a href="<%= subs_url %>">Back to SubSheddit</a>
+<br>
+<% if @post.author_id = current_user.id %>
+<a href="<%= edit_post_url(@post.id) %>">Edit Post</a>
+<br>
+<% end %>

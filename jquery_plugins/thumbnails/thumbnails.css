@@ -1,0 +1,69 @@
+body, ul, li, a {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-style: inherit;
+  font-weight: inherit;
+
+}
+
+img {
+  display: block;
+  float: left;
+  height: 120px;
+}
+
+li {
+  display: block;
+  list-style: none;
+  width: 400px;
+
+}
+
+a {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+ul.thumbnails  {
+  width: 400px;
+  height: 400px;
+
+}
+
+.active img {
+  width: 100%;
+  height: 300px;
+  display: block;
+  float: left;
+}
+
+.gutter {
+  width: 100%;
+  float: left;
+  display: block;
+  position: relative;
+}
+.gutter-images {
+  width: 90%;
+  position: relative;
+  left: 5%;
+}
+
+.gutter-images img {
+  width: 20%;
+  display: block;
+  float: left;
+  height:100px;
+}
+
+.nav {
+  width: 5%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  left: 95%;
+}

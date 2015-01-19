@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GoalSetter</title>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+<%= flash.now[:errors] %>
+
+<% if logged_in? %>
+  Login as <%= current_user.username %>
+  <br>
+
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <button name="submit">Logout</button>
+  </form>
+
+<% else %>
+  <a href="<%= new_session_url %>">Please Login in</a>
+  <br>
+<% end %>
+
+
+
+<%= yield %>
+
+</body>
+</html>

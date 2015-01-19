@@ -1,0 +1,13 @@
+<ul class="errors"></ul>
+
+
+
+<form>
+  <label> Title </label>
+  <input type="text" name="post[title]" value="<%= attributes.title%>"></input>
+  <br>
+  <label> Body </label>
+  <textarea name="post[body]"><%= attributes.body %></textarea>
+  <br>
+  <input type="submit" value="Submit Post"></input>
+</form>

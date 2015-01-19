@@ -1,0 +1,7 @@
+<h1>New Goal!</h1>
+
+<form action="<%= goals_url %>" method="post">
+
+  <%= render partial: 'form', locals: { goal: @goal} %>
+  
+</form>

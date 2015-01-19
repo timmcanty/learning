@@ -1,0 +1,8 @@
+<h1>Create a new Post!</h1>
+
+
+<form action="<%= posts_url %>" method="post">
+
+  <%= render partial: 'form', locals: { post: @post} %>
+
+</form>

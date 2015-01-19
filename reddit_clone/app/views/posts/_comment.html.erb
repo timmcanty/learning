@@ -1,0 +1,15 @@
+<ul>
+  <li>By <%= comment.author.username %> at <%= comment.created_at %><br>
+    <%= comment.content %><br>
+    <a href="<%= post_comment_url(comment.post_id, comment.id) %>">Link to Comment</a>
+    <% if comment.author.id == current_user.id %>
+    <form action="<%= comment_url(comment.id) %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button name="submit">Delete Comment</button>
+    </form>
+    <% end %>
+      <% all_comments[comment.id].each do |child| %>
+        <%= render partial: 'comment', locals: { comment: child, all_comments: all_comments} %>
+      <% end %>
+  </ul>

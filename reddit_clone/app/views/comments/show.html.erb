@@ -1,0 +1,27 @@
+<h3>By <%= @comment.author.username %> at <%= @comment.created_at %></h3>
+
+<p>
+  <%= @comment.content %>
+</p>
+
+<p>
+  Replies
+</p>
+
+<% @all_comments = @post.comments_by_parent_id %>
+
+
+<%= render partial: 'comment', locals: { comment: @comment, all_comments: @all_comments } %>
+
+
+<form action="<%= comments_url %>" method="post">
+  <%= render partial: "form", locals: { comment: @comment } %>
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= @comment.id %>">
+</form>
+
+<br>
+<a href="<%= post_url(@comment.post_id) %>">Go Back to Post</a>
+<br>
+<% if @comment.parent_comment_id %>
+<a href="<%= post_comment_url(@comment.post_id,@comment.parent_comment_id) %>">Up One Level</a>
+<% end %>

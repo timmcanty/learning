@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+   background-color: green;
+   font-family: sans-serif;
+ }
+
+ body, a, p, h3, h5, ul, li, label {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font: inherit;
+   color: inherit;
+   text-align: inherit;
+   text-decoration: inherit;
+   background: transparent;
+ }
+
+
+
+ ul, li {
+   list-style: none;
+ }
+
+ #sidebar {
+   float: left;
+   box-sizing: border-box;
+   height: 100%;
+   background-color: aqua;
+   margin-bottom: -5000px;
+   padding-bottom: 5000px;
+   border-color: black;
+   border-style: solid;
+   border-width:  10px;
+ }
+
+ #posts {
+   width: fit-content;
+   box-sizing: border-box;
+   padding-left: 20px;
+   margin-left: 200px;
+   background-color: yellow;
+ }
+
+
+ .errors {
+   color: red;
+ }
+
+ .create {
+   font-size: 30px;
+   border: 1px dotted black;
+ }
+
+ .title {
+   display: block;
+   font-size: 40px;
+   border: 3px solid black;
+   width: auto;
+ }

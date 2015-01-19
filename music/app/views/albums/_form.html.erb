@@ -1,0 +1,23 @@
+<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>" >
+
+<label for="name"> Name: </label>
+<input type="text" name="album[name]" id="name" value="<%= album.name %>" >
+<br>
+<label for="band"> Band: </label>
+<select name="album[band_id]" id="band" >
+  <% Band.all.each do |band| %>
+    <option value="<%= band.id %>" <%='selected' if band.id == album.band_id %> >
+      <%= band.name %>
+    </option>
+  <% end %>
+</select>
+<br>
+
+<label for="recording_setting"> Album Type: </label><br>
+<% live = album.recording_setting == 'Live' ? 'checked' : '' %>
+<% studio = album.recording_setting == 'Studio' ? 'checked' : '' %>
+<input type="radio" name="album[recording_setting]" value="Live" <%= live %>>Live<br>
+<input type="radio" name="album[recording_setting]" value="Studio" <%= studio %>>Studio<br>
+
+
+<input type="submit" value="Submit!">

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sheddit</title>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+ <% if current_user %>
+   <%= current_user.username  %>
+   <form action=" <%= session_url %>" method="post">
+     <input type="hidden" name="_method" value="DELETE">
+     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+     <button name="submit">Logout!</button>
+   </form>
+ <% end %>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+
+<label for="Content">What is your new goal?</label>
+<input id="Content" type="text" name="goal[content]" value="<%= goal.content %>" >
+
+<br>
+
+<input id="Private" type="radio" name="goal[public]" value="false" <%= "checked" unless goal.public%> >Private <br>
+<input id="Public"  type="radio" name="goal[public]" value="true" <%= "checked" if goal.public%> >Public
+
+<br>
+
+<input id="not Complete" type="radio" name="goal[complete]" value="false" <%= "checked" unless goal.complete %> >Not Completed <br>
+<input id="Complete" type="radio" name="goal[complete]" value="true" <%= "checked" if goal.complete %> >Completed <br>
+
+<input type="submit" value="submit">

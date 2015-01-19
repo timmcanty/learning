@@ -1,0 +1,31 @@
+<h1> <%= @album.name %> </h1>
+
+<h3> Hot Trax! </h3>
+
+<ul>
+  <% @album.tracks.each do |track| %>
+  <li>  <a href="<%= track_url(track.id) %>" > <%= track.title%> </a> </li>
+  <% end %>
+</ul>
+
+
+<form method="get" action="<%= new_album_track_url(@album.id) %>" class="button_to">
+  <input type="submit" value="New Track" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form> <br>
+
+<form method="get" action="<%= edit_album_url(@album.id) %>" class="button_to">
+  <input type="submit" value="Edit Album" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form> <br>
+
+<form method="post" action="<%= album_url(@album.id) %>" class="button_to">
+  <input type="hidden" name="_method" value="delete" >
+  <input type="submit" value="Delete Album" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form> <br>
+
+<form method="get" action="<%= band_url(@album.band_id) %>" class="button_to">
+  <input type="submit" value="Back to Band" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form> <br>

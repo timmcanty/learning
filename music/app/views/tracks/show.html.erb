@@ -1,0 +1,31 @@
+<h1> <%= @track.title %> </h1>
+
+
+<h3> Lyrics </h3>
+
+<%= ugly_lyrics(@track.lyrics) %>
+
+<br>
+
+<ul>
+<%= render @track.notes %>
+</ul>
+
+<%= render partial: "notes/form", locals: {track: @track} %>
+<br>
+
+<form method="get" action="<%= edit_track_url(@track.id) %>" class="button_to">
+  <input type="submit" value="Edit Track" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form> <br>
+
+<form method="post" action="<%= track_url(@track.id) %>" class="button_to">
+  <input type="hidden" name="_method" value="delete" >
+  <input type="submit" value="Delete Track" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form> <br>
+
+<form method="get" action="<%= album_url(@track.album_id) %>" class="button_to">
+  <input type="submit" value="Back to Album" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form>

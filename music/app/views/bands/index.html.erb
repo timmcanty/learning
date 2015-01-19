@@ -1,0 +1,16 @@
+<h1> CHECK OUT THESE STELLAR BANDS! </h1>
+
+<ul>
+  <% Band.all.each do |band| %>
+    <li> <a href="<%= band_url(band.id) %>" > <%= band.name%> </a> </li>
+  <% end %>
+</ul>
+
+<br>
+
+<p> Do you have a hot, new band? Submit it! </p>
+
+<form method="get" action="<%= new_band_url %>" class="button_to">
+  <input type="submit" value="New Band" >
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" >
+</form>

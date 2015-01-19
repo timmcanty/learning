@@ -1,0 +1,8 @@
+<h1> Change This Band! </h1>
+
+<%= render partial: "layouts/flash" %>
+
+<form action="<%= band_url(@band.id) %>" , method="post" >
+  <input type="hidden" name="_method" value="PATCH">
+  <%= render partial: "form", locals: { band: @band} %>
+</form>

@@ -1,0 +1,10 @@
+<ul class="posterror"></ul>
+<div class="post title">
+  <h3> <%= post.escape('title') %> </h3>
+</div>
+<div class="post body">
+  <p> <%= post.escape('body') %> </p>
+</div>
+<a href="#/posts/<%= post.get('id')%>/edit">Edit Post</a>
+<button data-id="<%= post.get('id')%>" class="delete">Delete Post</button>
+<br>

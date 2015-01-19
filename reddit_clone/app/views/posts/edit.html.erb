@@ -1,0 +1,9 @@
+<h1>Create a new Post!</h1>
+
+
+<form action="<%= post_url(@post.id) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <%= render partial: 'form', locals: { post: @post} %>
+
+</form>

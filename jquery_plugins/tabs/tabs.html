@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Cool Website</title>
+  <script src="./jquery-2.1.1.js"></script>
+  <script src="./tabs.js"></script>
+  <link href="./tabs.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.2/build/cssreset/cssreset-min.css">
+</head>
+
+<body>
+  <ul class='tabs' data-content-tabs="#content-tabs">
+    <li>
+      <a href="#big" class="active">Big Dog</a>
+    </li>
+    <li>
+      <a href="#small">Small Dog</a>
+    </li>
+    <li>
+      <a href="#medium">Medium Dog</a>
+    </li>
+  </ul>
+  <ul id="content-tabs">
+    <li class="tab-pane active" id="big">
+      <p>
+        Big dogs are great...but not always in the city!
+      </p>
+    </li>
+    <li class="tab-pane" id="small">
+      <p>
+        Small dogs are great...but hawks will eat them in the wild.
+      </p>
+    </li>
+    <li class="tab-pane" id="medium">
+      <p>
+        Medium dogs are great...but nothing special.
+      </p>
+    </li>
+  </ul>
+
+  <script>
+  $(function() {
+    $('.tabs').tabs();
+  })
+  </script>
+</body>
+</html>

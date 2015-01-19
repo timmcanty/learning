@@ -1,0 +1,23 @@
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<label for="title">Title: (required)</label><br>
+<input type="text" name="post[title]" value="<%= post.title %>">
+
+<br>
+<label for="url">URL: (optional!)</label><br>
+<input type="text" name="post[url]" value="<%= post.url %>">
+
+<br>
+<label for="content">Contents: (optional)</label><br>
+<textarea name="post[content]" rows="8" cols="100"><%= post.content %></textarea>
+
+<br>
+<label for="subs">Select Subs: (select at least 1)</label>
+<% Sub.all.each do |sub|  %>
+  <input type="checkbox" name="subs[<%= sub.title %>]" value="<%= sub.id %>"
+  <% if post.sub_ids.include?(sub.id) %> <%= "checked" %>
+  <% end %>><%= sub.title %>
+<% end %>
+
+<br>
+<button name="submit">Submit</button>

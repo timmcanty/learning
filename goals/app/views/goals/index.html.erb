@@ -1,0 +1,29 @@
+<h1>All Goals</h1>
+
+<h3>Your goals</h3>
+<ul>
+  <% @all_goals.select{|goal| goal.author_id == current_user.id}.each do |goal|%>
+  <li> <%= goal.content %></li> <br>
+  <a id="<%= current_user.username %>_<%= goal.content.html_safe %>" href="<%= edit_goal_url(goal.id) %>">Edit Goal</a>
+    <form action="<%= goal_url(goal.id) %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input id="destroy_<%= current_user.username %>_<%= goal.content.html_safe %>" type="button" name="submit" value="Delete Goal">
+  </form>
+  <% end %>
+
+</ul>
+
+
+
+<h3>Others' goals</h3>
+<ul>
+  <% @all_goals.select{|goal| goal.public && goal.author_id != current_user.id }.each do |goal|%>
+
+  <li>User: <%= goal.author.username %> <br> Goal: <%= goal.content %></li>
+
+  <% end %>
+</ul>
+
+
+<a href="<%= new_goal_url %>">Create New Goal</a>

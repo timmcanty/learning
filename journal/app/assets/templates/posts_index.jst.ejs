@@ -1,0 +1,9 @@
+
+<ul>
+  <% posts.models.forEach(function (post) { %>
+    <li> <a href="#/posts/<%=post.get('id')%>"><%= post.escape('title') %></a>
+    </li>
+    <% }) %>
+</ul>
+
+<a class="create post" href="#/posts/new">Create Post</a>

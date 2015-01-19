@@ -1,0 +1,8 @@
+<h1> What's the Album? </h1>
+
+<%= render partial: "layouts/flash" %>
+
+
+<form action="<%= albums_url %>" method="post" >
+  <%= render partial: "form", locals: { album: @album} %>
+</form>

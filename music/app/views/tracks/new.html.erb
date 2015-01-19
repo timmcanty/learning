@@ -1,0 +1,7 @@
+<h1> What's the Track? </h1>
+
+<%= render partial: "layouts/flash" %>
+
+<form action="<%= tracks_url %>" , method="post" >
+  <%= render partial: 'form', locals: { track: @track} %>
+</form>

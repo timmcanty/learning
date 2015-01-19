@@ -1,0 +1,74 @@
+
+<h1> Info for <%= @cat.name %> </h1>
+
+
+<table border="3" style="width:31%">
+  <tr>
+    <td> Color: </td>
+    <td> <%= @cat.color %> </td>
+  </tr>
+  <tr>
+    <td> Age: </td>
+    <td> <%= @cat.age %> </td>
+  </tr>
+  <tr>
+    <td> Birth Date: </td>
+    <td> <%= @cat.birth_date %> </td>
+  </tr>
+  <tr>
+    <td> Sex: </td>
+    <td> <%= @cat.sex %> </td>
+  </tr>
+</table>
+
+
+<h3> Description: </h3>
+<p> <%= @cat.description %> </p>
+
+<h2> Rentals To Date </h2>
+
+<head>
+<style>
+table#trental, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+table#trental, td {
+  text-align: center;
+}
+</style>
+</head>
+
+<table id="trental" border = "1" style = "width:70%">
+  <tr>
+    <th> Start Date </th>
+    <th> End Date </th>
+    <th> Requester </th>
+    <th> Status </th>
+    <th> Approve </th>
+    <th> Deny </th>
+  </tr>
+  <% @rental_requests.each do |request| %>
+  <tr>
+    <td> <%= request.start_date.to_date %> </td>
+    <td> <%= request.end_date.to_date %> </td>
+    <td> <%= request.user.user_name %> </td>
+    <td> <%= request.status %> </td>
+    <% if request.status == "PENDING" && current_user.id == @cat.user_id %>
+      <td> <%= button_to("Approve", approve_cat_rental_request_url(request.id) ) %> </td>
+      <td> <%= button_to("Deny", deny_cat_rental_request_url(request.id) ) %> </td>
+    <% else %>
+      <td> ----- </td>
+      <td> ----- </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
+
+<br>
+<a href="<%= edit_cat_url(@cat) %>" > Edit the cat </a> <br> <br>
+
+<a href="<%= cats_url %>" > Back to cats </a>

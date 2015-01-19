@@ -1,0 +1,7 @@
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="comment[post_id]" value="<%=params[:post_id]%>">
+
+<label for="content">Insert Comment Here</label>
+<textarea name="comment[content]" rows="8" cols="120"><%= comment.content %></textarea>
+
+<button name="submit">Submit Comment!</button>

@@ -1,0 +1,27 @@
+<input name="authenticity_token" type="hidden" value="<%=form_authenticity_token %>" >
+
+<label for="album"> Album: </label>
+<select name="track[album_id]" id="album" >
+  <% Album.all.each do |album| %>
+  <option value="<%= album.id %>" <%='selected' if album.id == track.album_id %> >
+    <%= album.name %>
+  </option>
+  <% end %>
+</select>
+<br>
+
+<label for="title"> Title: </label>
+<input type="text" name="track[title]" id="title" value="<%= track.title %>" >
+<br>
+
+<textarea cols="150" rows="20" name="track[lyrics]"> <%= track.lyrics %> </textarea>
+<br><br>
+
+<label for="track_type"> Track Type: </label><br>
+<% regular = track.track_type == 'Regular' ? 'checked' : '' %>
+<% bonus = track.track_type == 'Bonus' ? 'checked' : '' %>
+<input type="radio" name="track[track_type]" value="Regular" <%= regular %>>Regular<br>
+<input type="radio" name="track[track_type]" value="Bonus" <%= bonus %>>Bonus<br>
+
+
+<input type="submit" value="Submit!">

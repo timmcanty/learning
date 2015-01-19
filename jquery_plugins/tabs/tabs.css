@@ -1,0 +1,34 @@
+body, ul, li, a, p {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-style: inherit;
+  font-weight: inherit;
+
+}
+
+li {
+  list-style: none;
+}
+
+
+
+.tabs a.active {
+  font-weight: bold;
+}
+
+li.tab-pane {
+  display: none;
+  -webkit-transition: opacity .5s;
+  opacity: 0;
+}
+
+li.tab-pane.active {
+  display: block;
+  opacity: 1;
+}
+
+li.tab-pane.transitioning {
+  display: block;
+  opacity: 0;
+}

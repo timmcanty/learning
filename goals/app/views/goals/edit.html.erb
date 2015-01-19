@@ -1,0 +1,8 @@
+<h1>edit goal</h1>
+
+<form action="<%= goal_url(@goal.id) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <%= render partial: "form", locals: {goal: @goal} %>
+
+</form>
